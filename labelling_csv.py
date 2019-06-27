@@ -14,11 +14,6 @@ folder_name = "Cars_test"
 
 strPath = str(Path(__file__).resolve().parent) + "\\" + folder_name
 
-if os.path.isdir(strPath):
-    print("Folder found")
-
-size = len(os.listdir(strPath))
-
 def resize():
     column=1
     row=1
@@ -35,6 +30,10 @@ def resize():
             row += 1
         column += 1
     workbook.save("labels.csv")
-
-resize()
-print("---Finished---")
+	
+if os.path.isdir(strPath):
+    print("Folder found")
+    size = len(os.listdir(strPath))
+    resize()
+else:
+    print("Folder not found")
