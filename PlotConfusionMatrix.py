@@ -7,6 +7,18 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 from sklearn.utils.multiclass import unique_labels
 
+#Confution Matrix and Classification Report
+#Y_pred = model.predict_generator(valid_generator, num_valid_samples // batch_size+1)
+#y_pred = np.argmax(Y_pred, axis=1)
+#print('Confusion Matrix')
+#cm = confusion_matrix(valid_generator.classes, y_pred)
+#print(cm)
+#print('Classification Report')
+#target_names = ['Cort', 'Fender', 'Gibson', 'Ibanez', 'Jackson']
+#print(classification_report(valid_generator.classes, y_pred, target_names=target_names))
+#plot_confusion_matrix(cm, target_names, True)
+
+
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
                           title='Confusion matrix',
@@ -21,7 +33,6 @@ def plot_confusion_matrix(cm, classes,
     else:
         print('Confusion matrix, without normalization')
 
-    #print(cm)
     plt.figure(figsize=(8, 6))
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
