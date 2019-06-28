@@ -18,7 +18,6 @@ from sklearn.utils.multiclass import unique_labels
 #print(classification_report(valid_generator.classes, y_pred, target_names=target_names))
 #plot_confusion_matrix(cm, target_names, True)
 
-
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
                           title='Confusion matrix',
@@ -33,12 +32,13 @@ def plot_confusion_matrix(cm, classes,
     else:
         print('Confusion matrix, without normalization')
 
+    print(cm)
     plt.figure(figsize=(8, 6))
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
     tick_marks = np.arange(len(classes))
-    plt.xticks(tick_marks, classes, rotation=45)
+    plt.xticks(tick_marks, classes, rotation=0)
     plt.yticks(tick_marks, classes)
 
     fmt = '.2f' if normalize else 'd'
@@ -48,6 +48,7 @@ def plot_confusion_matrix(cm, classes,
                  horizontalalignment="center",
                  color="white" if cm[i, j] > thresh else "black")
 
-    plt.ylabel('True label')
+    plt.ylabel('Actual label')
     plt.xlabel('Predicted label')
     plt.tight_layout()
+    plt.show()
