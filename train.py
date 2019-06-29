@@ -4,7 +4,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
 
-img_width, img_height = 299,299
+img_width, img_height = 224,224
 num_channels = 3
 train_data = 'Guitar_train_resized'
 valid_data = 'Guitar_test_resized'
