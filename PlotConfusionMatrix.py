@@ -8,6 +8,8 @@ from sklearn.metrics import confusion_matrix
 from sklearn.utils.multiclass import unique_labels
 
 #Confution Matrix and Classification Report
+#import PlotConfusionMatrix
+#import numpy as np
 #Y_pred = model.predict_generator(valid_generator, num_valid_samples // batch_size+1)
 #y_pred = np.argmax(Y_pred, axis=1)
 #print('Confusion Matrix')
