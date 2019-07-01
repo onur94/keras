@@ -1,10 +1,13 @@
 import keras
+import numpy as np
 from resnet_152 import resnet152_model
 from keras.preprocessing.image import ImageDataGenerator
 from keras.callbacks import CSVLogger, ModelCheckpoint, EarlyStopping
 from keras.callbacks import ReduceLROnPlateau
+from PlotConfusionMatrix import plot_confusion_matrix
+from sklearn.metrics import confusion_matrix, classification_report
 
-img_width, img_height = 224,224
+img_width, img_height = 299,299
 num_channels = 3
 train_data = 'Guitar_train_resized'
 valid_data = 'Guitar_test_resized'
@@ -53,3 +56,14 @@ if __name__ == '__main__':
         epochs=num_epochs,
         callbacks=callbacks,
         verbose=verbose)
+
+    #Confution Matrix and Classification Report
+    Y_pred = model.predict_generator(valid_generator, num_valid_samples // batch_size+1)
+    y_pred = np.argmax(Y_pred, axis=1)
+    print('Confusion Matrix')
+    cm = confusion_matrix(valid_generator.classes, y_pred)
+    print(cm)
+    print('Classification Report')
+    target_names = ['0', '1']
+    print(classification_report(valid_generator.classes, y_pred, target_names=target_names))
+    plot_confusion_matrix(cm, target_names, True)
