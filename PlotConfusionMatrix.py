@@ -54,3 +54,8 @@ def plot_confusion_matrix(cm, classes,
     plt.xlabel('Predicted label')
     plt.tight_layout()
     plt.show()
+
+if __name__ == '__main__':
+    cm = np.array([[319,41],[42,258]])
+    target_names = ['0', '1']
+    plot_confusion_matrix(cm, target_names, True)
