@@ -39,7 +39,7 @@ num_epochs = 30
 patience = 50
 verbose = 1
 
-TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InRlbnNvcmZsb3ciLCJjaGF0X2lkIjoiNzczMzQ5MDgwIn0.73_b-Rw2V5nISCsXsOpsuqkxb5u_hCfudnZMm_pUAfo"
+TOKEN = ""
 
 workbook = xlwt.Workbook()  
   
